@@ -1,1 +1,200 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 
+
+//but my idea is to make it simple
+//so i'll use rand() to randomize a random num of ships into random places 
+//and only 50 gunpowers to fire  
+  
+  //const int MISS= 2;
+  //const int NEAR_MISS = 1;
+  //const int HIT = 0;
+  //const int LINE_X = 8;
+  //const int LINE_Y = 8;
+
+
+int main{
+  
+  const int board[8][8] = {};
+  
+  
+  void welcome(){
+	std::cout << "welcome to battleship for dummy!\n";
+	std::cout << "i assure you this isn't a fun game.\n";
+	std::cout << "but i'm real nice. so you only need to try 50 times (i call it gun power) to sink the ship";
+	std::cout << "or you lose.";
+	
+	}
+
+	void displayBoard(){
+        
+        for(int i=0; i < 8; i++)
+        {
+                for(int j=0; j < 8; j++)
+                {
+                        std::cout << board[i][j] << "\t"; 
+                }
+                std::cout << "\n";
+        }
+}
+		
+            
+
+	int getShip(){
+		int ship = 0;
+	
+		srand(time(0));
+	
+		//10-20 ships
+		ship = 10 + (rand() % 10 + 1); //max up to 20 ships (is it too much?)
+	  	std::cout << "the ship is loading...you'll have " << ship << " ships on the board\n ";
+	  	//int currentShip = ship;
+		
+		return ship; 
+		 
+	}  
+
+	int currentShip = getShip();  
+
+//ships are ready to ship away 
+	void loadShip(){
+		//using for loop to load it random times
+		//int randomY = rand() % ;
+		
+		int randomNum = rand() % 2
+		 for(int = 0; i < currenShip; i++)
+		 {
+		 	int loadShipX = rand() % 8;
+		 	//if these two numbers were same
+		 	//then the outcome would be too predictable
+		 	//so i tried to add a sleep() 
+			//so that the time and eventually rand() will change, but i don't know if it works 
+		 	Sleep(3);
+	     	int loadShipY = rand() % 8;
+	     	//loadShipX++;
+	     	//loadShipY++;
+	     	if(loadShipX == loadShipY && 2 < loadShipY < 8 && 0 < loadShipX < 6){
+			    loadShipX = loadShipX + randomNum;
+				loadShipY = loadShipY - randomNum;	
+				if (i < currenShip && board[loadShipX][loadShipY] != 1 ){
+					board[loadshipX][loadShipY]=1;
+				}
+			
+		} 
+	} 
+  
+  
+  
+   
+  int playerInut(int x, int y){
+  	
+  	int x, y;
+  	std::cout << "from top to bottom, left to right\n";
+  	std::cout << "type the location where you want to fire the ship: ";
+  	std::cout << "now enter row, i.e., x axis: \n"
+  	cin>>x;
+  	std::cout << "\nok, now enter column: ";
+  	cin>>y;
+  
+  	return x, y; 
+  }
+  
+  //bool gameRunning = true;
+  int gunPower = 0;
+  int shipLeft = currentShip;
+  
+  while ( (gunPower < 50) && (shipLeft > 0)){
+		playerInput();
+		
+		if (board[x][y] == 1){
+			std::cout << "you just hit the ship, congrats!";
+			std::cout << "keep firing more ships :)";
+			gunPower++;
+			shipLeft--;
+			//playerInput();
+			
+		}
+		else ((board[x][y+1] == 1) || (board[x][y-1] == 1)
+			||  (board[x+1][y] == 1) || (board[x-1][y] == 1) ) {
+				std::cout << "it's a near hit, try again?";
+				gunPower++;
+				//playerInput();
+			}
+		//checking diagonally 
+		else ((board[x-1][y-1] == 1) || (board[x-1][y+1] == 1) 
+			|| (board[x+1][y-1] == 1) || (board[X+1][y+1] == 1) ){
+				std::cout << "it's a near hit. try again?\n";
+				std::cout << "try to hit diagonally, you may get a surprise!";
+				gunPower++;
+				//playerInput();
+			}
+			
+  		else
+		  {
+  			std::cout<<	"life sucks, your location is far cry from any ships\n";
+  			std::cout<< "try again?";
+  			gunPower++;
+  			//playerInput();
+		  }
+	}
+	
+		void gameOver(){
+			if( (shipLeft == 0) && (gunPower < 50){
+				std::cout << "Bravo!!!you found all the ships!\n and you made it before your gunpower runs out";
+			}
+			else {
+				std::cout << "there's only 8 x 8 = 64 grids, and yet you've tried...50 times...sorry, you did not win..."
+				std::cout << "\n...life sucks. and you suck at gaming. no big deal\n";
+				std::cout << "want to start over?\n";
+				Sleep(3);
+				std::cout << "actually, the author is lazy to clear board and load it one more time,\n";
+				std::cout << "tho it means only a few more lines\n"
+				std::cout << "it's not a fun game. don't waste your time. go read books, watch movies and enjoyr your life. bye."		
+				
+			}		 
+	}	  
+	
+	
+	
+  
+  
+}
+  
+
+  /*
+    void createBoard(){
+        int boardX = 0;
+        int boardY = 0;
+        for(int i=0; i<8; i++) {
+            ++x;
+            //std::cout<<" " <<x<<" ";
+    		std::cout << " . ";
+        }    
+    }
+  */
+ 
+//2d array to create an outlook of the game board
+  //char boardLine[lineX][lineY];
+  /*int boardLine[LINE_X][LINE_Y];
+void createBoard(){
+	for(i=0; i<8; i++){
+		for(j=0; j<8; j++){
+			boardLine[LINE_X][LINE_Y];
+		}
+		
+	}
+}*//
+    
+   
+   /*the computer is loading ship...please wait...merci!
+   congrats! you win! 
+   
+
+   and because i'm lazy to code more to break the while loop, the game has to be continued...oh my bad!
+   
+  
+  // Write a while loop just to keep the game running:
+
+
+//while loop to run the game until it's finished
