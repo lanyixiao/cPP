@@ -1,12 +1,13 @@
 #include <iostream>
 #include<string> 
 
-//working on creating a linked list that takes user input and also memory allocation
+
+//working on how users can delete their input
 //i will update it if it's not yet graded
 
 
 /*struct userInput{
-	string operators;
+	string operator;
 	int userInput1;
 	int userInput2;
 };*/
@@ -16,12 +17,12 @@ public:
 	int Cal(string inputOperator; int int1, int int2);
 };
 
-
-
-//users can delete their input
-
-
-
+	//int *p = NULL; 
+	
+struct inputInt { 
+   int data; 
+   struct inputInt *next; 
+}; 
 
 int main(){
 	std::cout << "welcome to use the minimal calculator. \n";
@@ -34,6 +35,31 @@ int main(){
 //	cin >> int1 >> int2;
 	
 	int result;
+	
+	//int *p = NULL; 
+	
+	struct inputInt* head = NULL;  	
+	struct inputInt* second = NULL;
+	//struct inputInt* third = NULL;  	  	
+	
+
+	
+	
+	head = (struct inputInt*)malloc(sizeof(struct inputInt));
+	second = (struct inputInt*)malloc(sizeof(struct inputInt));
+	//third = (struct inputInt*)malloc(sizeof(struct inputInt));
+	
+	
+	
+//	cin >> int1;
+//	head->data = int1;
+//	head->next = second;
+//	cin >> int2;
+//	second->data = int2;
+//	second->next = NULL;
+//	third->data = ;
+//	third->next = NULL;
+	
 	
 	int Calculator::Cal(string inputOperator; int int1, int int2)
 	{
@@ -52,11 +78,21 @@ int main(){
 	    }
 	}
 	
+	
 	Calculator cal;
+	
+	
 	while(true){
 		cin >> inputOperator;
-		std::cout << "now enter two numbers that you want to calculate: \n";
+		std::cout << "now enter the two numbers that you want to calculate: \n";
 		cin >> int1 >> int2;
+		
+		head->data = int1;
+		head->next = second;
+
+		second->data = int2;
+		second->next = NULL;
+	
 		
 		if ((inputOperator == '/') && int2 == 0)
         {
