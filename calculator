@@ -1,1 +1,78 @@
+#include <iostream>
+#include<string> 
 
+//working on creating a linked list that takes user input and also memory allocation
+//i will update it if it's not yet graded
+
+
+/*struct userInput{
+	string operators;
+	int userInput1;
+	int userInput2;
+};*/
+
+class Calculator {
+public:
+	int Cal(string inputOperator; int int1, int int2);
+};
+
+
+
+//users can delete their input
+
+
+
+
+int main(){
+	std::cout << "welcome to use the minimal calculator. \n";
+	std::cout << "now, input what operation you want to perform: \n";
+	std::cout << "+ | - | * | / ,  input: \n";
+	
+//	cin >> inputOperator: 
+//	
+//	std::cout << "now enter two numbers that you want to calculate: \n";
+//	cin >> int1 >> int2;
+	
+	int result;
+	
+	int Calculator::Cal(string inputOperator; int int1, int int2)
+	{
+	    switch(inputOperator)
+	    {
+	        case '+':
+	            return int1 + int2;
+	        case '-':
+	            return int1 - int2;
+	        case '*':
+	            return int1 * int2;
+	        case '/':
+	            return int1 / int2;
+	        default:
+	            return 0;
+	    }
+	}
+	
+	Calculator cal;
+	while(true){
+		cin >> inputOperator;
+		std::cout << "now enter two numbers that you want to calculate: \n";
+		cin >> int1 >> int2;
+		
+		if ((inputOperator == '/') && int2 == 0)
+        {
+            std::cout << "ERROR: division by zero \n";
+            continue;
+        }
+        else
+        {
+            result = cal.Cal(intputOperator, int1, int2);
+        }
+        	std::cout << "so the result is: " << result << ". \n";
+    }
+	}
+		
+		
+	
+	
+	
+}
