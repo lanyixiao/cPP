@@ -75,7 +75,8 @@ int main()
 	cin >> input;
 	
 	if (intCheck(input)){
-		if(input > 0){
+		userInput = input;
+		if(userInput > 0){
 			std::cout << "order confirmed\n";
 			std::cout << "getting ready for coffee... \n";
 			
