@@ -31,7 +31,7 @@ int main()
 {
 	
 	std::cout << "\welcome to use this second-handed coffer maker to feel refreshed\n";
-	std::cout << "so how many cups do you want to have? \n"
+	std::cout << "so how many cups do you want to have? \n";
 	std::cout << "input the number of cup: \n";
 
 	
