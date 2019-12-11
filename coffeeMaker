@@ -1,0 +1,92 @@
+
+#include <iostream>
+#include <>
+
+
+
+struct getCupNum
+{
+	int userInput;
+};
+
+
+class Reservoir {
+	public:
+		const int singleCupWater = 1;
+		int water = 5; //assuming a coffee maker can make 5 cups at first
+		//actually i use instant coffee being heated in a microwave, kind of forget how real coffee maker works
+		int currentWater;
+		int *ptrWater;
+		ptrWater = &currentWater;
+		//int userInput;
+		int totalWater = singleCupWater * userInput;
+		int waterRefill = 5;
+	
+	waterPrep(int userInput){
+		
+	}
+	
+		
+};
+
+int main()
+{
+	
+	std::cout << "\welcome to use this second-handed coffer maker to feel refreshed\n";
+	std::cout << "so how many cups do you want to have? \n"
+	std::cout << "input the number of cup: \n";
+
+	
+	getCupNum *getcupnum = (getCupNum *)malloc(sizeof(getCupNum));
+	*getcupnum = { 0 };
+	cin >> 	getcupnum->userInput; 
+	std::cout << "so you want: \n" << getcupnum->userInput << " cup of coffee. please wait... \n\n\n\";
+	
+	//beans section
+	
+	
+	//water section
+	
+	void  Reservoir::waterPrep(int userInput){
+	std::cout << "checking reservoir...\n";
+	std::cout << "";// countdown
+	std::cout << "since you need " << userInput << " cup(s) of coffee \n";
+	*ptrWater = water - userInput;
+	
+		if(*ptrWater > totalWater) {
+			std::cout << "water is enough \n";
+			std::cout << "now let's heat it up...\n";
+		}
+		
+		else{
+			while(*ptrWater < totalWater){
+				*ptrWater = *ptrWater + waterRefill;
+			}
+			
+			std::cout << "finally, water is enough\n";
+			std::cout << "now let's heat it up'\n";
+			
+		}
+	
+	}
+	
+	std::cout << "water is getting ready\n";
+
+	Reservoir reservoir;
+	reservoir.waterPrep(getcupnum->userInput);
+
+
+	//beanPre::waterHeated();
+
+	beanPre bpre;
+	bpre.prepation(getcupnum->cupInput);
+	bpre.getGround();
+
+
+	cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
+	
+
+
+	return 0;
+
+}
