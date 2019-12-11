@@ -22,9 +22,7 @@ class Reservoir {
 		int totalWater = singleCupWater * userInput;
 		int waterRefill = 5;
 	
-	waterPrep(int userInput){
-		
-	}
+	waterPrep(int);
 	
 		
 };
