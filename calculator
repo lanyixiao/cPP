@@ -1,13 +1,11 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include<string> 
 
 
-//working on how users can delete their input
-//i will update it if it's not yet graded
-
-
 /*struct userInput{
-	string operator;
+	string operators;
 	int userInput1;
 	int userInput2;
 };*/
@@ -16,38 +14,52 @@ class Calculator {
 public:
 	int Cal(string inputOperator; int int1, int int2);
 };
+//users can delete their input
 
-	//int *p = NULL; 
-	
+
 struct inputInt { 
    int data; 
    struct inputInt *next; 
 }; 
 
+
+bool intCheck(string input) 
+{ 
+    for (int i = 0; i < input.length(); i++) 
+        if (isdigit(input[i]) == false) 
+            return false; 
+  
+    return true; 
+} 
+
 int main(){
+	
+	
 	std::cout << "welcome to use the minimal calculator. \n";
+	
+	std::cout << "Note: only INTEGERS, the author didn't use double";
 	std::cout << "now, input what operation you want to perform: \n";
 	std::cout << "+ | - | * | / ,  input: \n";
 	
-//	cin >> inputOperator: 
-//	
-//	std::cout << "now enter two numbers that you want to calculate: \n";
-//	cin >> int1 >> int2;
+	
 	
 	int result;
+	string input;
 	
 	//int *p = NULL; 
 	
 	struct inputInt* head = NULL;  	
-	struct inputInt* second = NULL;
-	//struct inputInt* third = NULL;  	  	
+	struct inputInt* second = NULL;	
 	
+//	head = (struct inputInt*)malloc(sizeof(struct inputInt));
+//	second = (struct inputInt*)malloc(sizeof(struct inputInt));	
+	head = new inputInt(); 
+    second = new inputInt(); 
 
-	
-	
-	head = (struct inputInt*)malloc(sizeof(struct inputInt));
-	second = (struct inputInt*)malloc(sizeof(struct inputInt));
-	//third = (struct inputInt*)malloc(sizeof(struct inputInt));
+    head->data = int1; 
+    head->next = second; 
+    second->data = int2; // assign data in first node 
+    second->next = NULL; // Link first node with 
 	
 	
 	
@@ -61,29 +73,30 @@ int main(){
 //	third->next = NULL;
 	
 	
-	int Calculator::Cal(string inputOperator; int int1, int int2)
-	{
-	    switch(inputOperator)
-	    {
-	        case '+':
-	            return int1 + int2;
-	        case '-':
-	            return int1 - int2;
-	        case '*':
-	            return int1 * int2;
-	        case '/':
-	            return int1 / int2;
-	        default:
-	            return 0;
-	    }
-	}
-	
 	
 	Calculator cal;
 	
-	
-	while(true){
+
+	while(true)
+	{
 		cin >> inputOperator;
+		
+		int Calculator::Cal(string inputOperator; int int1, int int2)
+		{
+		    switch(inputOperator)
+		    {
+		        case '+':
+		            return int1 + int2;
+		        case '-':
+		            return int1 - int2;
+		        case '*':
+		            return int1 * int2;
+		        case '/':
+		            return int1 / int2;
+		        default:
+		            return 0;
+		    }
+		}
 		std::cout << "now enter the two numbers that you want to calculate: \n";
 		cin >> int1 >> int2;
 		
@@ -92,23 +105,29 @@ int main(){
 
 		second->data = int2;
 		second->next = NULL;
-	
 		
-		if ((inputOperator == '/') && int2 == 0)
-        {
-            std::cout << "ERROR: division by zero \n";
-            continue;
-        }
-        else
-        {
-            result = cal.Cal(intputOperator, int1, int2);
-        }
-        	std::cout << "so the result is: " << result << ". \n";
-    }
+		
+		//checking if it's integers
+		if (intCheck(input)){
+			//checking x / 0 case
+			if ((inputOperator == '/') && int2 == 0)
+	        {
+	            std::cout << "ERROR: division by zero \n";
+	            continue;
+	        }
+	        else
+	        {
+	            result = cal.Cal(intputOperator, int1, int2);
+	        }
+	        	std::cout << "so the result is: " << result << ". \n";
+	    }
+	    else
+		{
+		std::cout << "error, not an integer!";
+		exit(0);
+		}
+	    
 	}
 		
-		
-	
-	
 	
 }
