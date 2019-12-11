@@ -1,0 +1,53 @@
+class beanPre
+{
+public:
+	//int const cupDefault = 1;
+	//int totalCup;
+
+	//void total(){
+
+	/*totalCup = cupDefault + cupInput
+	};
+	float beanOneCup =  0.125;
+
+	//int beanDefault = 8;
+	//float beanHopper = 1;
+	//the proportion remains the same*/
+
+
+
+	void prepation(int cupInput)
+	{
+		//float beanHopperUsed = beanHopper * cupInput / 8;
+
+		int beanDefault = 16;
+		//int beanHopper = 1;
+
+		/*int cupInput;
+		cin >> cupInput;*/
+		int beanUsed = beanDefault * cupInput / 8;
+		int beanHopperUsed = (beanUsed / 8);
+
+		/*
+		
+		
+		if (beansInContainer > beansNeededToMakeCoffee){
+		beansInContainer -= beansNeededToMakeCoffee;
+		}
+		
+		*/
+
+		/*if (beanHopper){
+		bean
+		}
+		else*/
+		cout << "\n the process will take " << beanUsed << " oz beans";
+		cout << "and " << beanHopperUsed << " beanhopper(s) get(s) used";
+
+	}
+
+	void getGround() {
+		cout << "\n beans are now being ground and added to the machine";
+		cout << "your coffee will be ready soon" << endl;
+	}
+};
