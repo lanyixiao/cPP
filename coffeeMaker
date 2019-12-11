@@ -4,9 +4,38 @@
 
 
 
-struct getCupNum
+//struct getCupNum
+//{
+//	int userInput;
+//};
+
+class Bean
 {
-	int userInput;
+public:
+	const int beanNum = 45;
+	const int singleCupOz = 10;
+	int totalOz = singleCupOz * userInput;
+	int totalNum = beanNum * userInput;
+//	int currentBeanOz;
+//	int currentBeanNum;
+	int *ptrBeanOz;
+	ptrBeanOz = &totalOz;
+	
+	int *ptrBeanNum;
+	ptrBeanNum = &totalNum;
+
+//	ptrBean = &currentBean;
+//	ptrBean = malloc(userInput * sizeof(int));
+	//malloc() won't work :(
+
+//	if(ptrBean = BULL) {
+//		free(ptrBean);
+//	}
+
+	countBeans(int userInput);
+	
+	beanGrind();
+
 };
 
 
@@ -27,6 +56,14 @@ class Reservoir {
 		
 };
 
+
+class heat{
+	const dHeat = 75;
+	void heating(){
+		std::cout << "now you're almost there"
+	}
+};
+
 int main()
 {
 	
@@ -35,20 +72,32 @@ int main()
 	std::cout << "input the number of cup: \n";
 
 	
-	getCupNum *getcupnum = (getCupNum *)malloc(sizeof(getCupNum));
-	*getcupnum = { 0 };
-	cin >> 	getcupnum->userInput; 
-	std::cout << "so you want: \n" << getcupnum->userInput << " cup of coffee. please wait... \n\n\n\";
+//	getCupNum *getcupnum = (getCupNum *)malloc(sizeof(getCupNum));
+//	*getcupnum = { 0 };
+//	cin >> 	getcupnum->userInput; 
+//	std::cout << "so you want: \n" << getcupnum->userInput << " cup of coffee. please wait... \n\n\n\";
+
 	
-	//beans section
+	int Bean::countBeans(int userInput){
+	    int *ptrBeanNum;
+	    ptrBeanNum = new int;
+	    *ptrBeanNum = userInput * beanNum;
+	    std::cout << "so : " << *ptrBeanNum << " beans will start grinding for you in a second\n";
+	    delete ptrBeanNum;
+	    
+	    int *ptrBeanOz;
+	    ptrBeanOz = new int;
+	    *ptrBeanOz = userInput * singleCupOz;
+	    std::cout << "so : " << *ptrBeanOz << "oz of beans will start grinding for you in a second\n";
+	    delete ptrBeanOz;	
+			
+	}
 	
-	
-	//water section
-	
-	void  Reservoir::waterPrep(int userInput){
+	int  Reservoir::waterPrep(int userInput){
 	std::cout << "checking reservoir...\n";
-	std::cout << "";// countdown
+	std::cout << "";// trying to get a countdown since Sleep() doesn't work properly in C++
 	std::cout << "since you need " << userInput << " cup(s) of coffee \n";
+	
 	*ptrWater = water - userInput;
 	
 		if(*ptrWater > totalWater) {
@@ -70,19 +119,26 @@ int main()
 	
 	std::cout << "water is getting ready\n";
 
-	Reservoir reservoir;
-	reservoir.waterPrep(getcupnum->userInput);
+//	Reservoir reservoir;
+//	reservoir.waterPrep(getcupnum->userInput);
+ 	
+	  
+//    if (*ptrBean < totalBean){
+//    	std::cout << "wonderful. there are enough beans";	
+//	}
 
-
-	//beanPre::waterHeated();
-
-	beanPre bpre;
-	bpre.prepation(getcupnum->cupInput);
-	bpre.getGround();
-
-
-	cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
+	void beanGrind() 
+	{
+		std::cout << "\n beans are now being grinded...\n";
+		std::cout << "your coffee will be ready soon" << endl;
+	};
 	
+	Tempt
+
+	
+
+	std::cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
+	std::cout << "wait, it's hot. do enjoy it, but later." <<endl;
 
 
 	return 0;
