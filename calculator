@@ -58,8 +58,8 @@ int main(){
 
     head->data = int1; 
     head->next = second; 
-    second->data = int2; // assign data in first node 
-    second->next = NULL; // Link first node with 
+    second->data = int2; 
+    second->next = NULL; 
 	
 	
 	
