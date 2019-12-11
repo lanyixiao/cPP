@@ -64,8 +64,8 @@ int main()
 	
 	std::cout << "welcome to use this second-handed coffer maker!\n";
 	std::cout << "so how many cups do you want to have? \n";
-	std::cout << "input the number of cup: \n";
 	std::cout << "reminder: it has to be integer and > 0\n";
+	std::cout << "input the number of cup: \n";
 	
 	string input;
 	int userInput;
@@ -140,27 +140,25 @@ int main()
 				}
 				std::cout << "your coffee will be ready soon" << endl;
 				
-			};
+			}
 			
 			void Heat::heating(){
-					std::cout << "heating start... you're almost there\n";
-					int *ptrCurrentHeat;
-					ptrCurrentHeat = &initialHeat;
-					ptrCurrentHeat = new int;
-					for(*ptrCurrentHeat = initialHeat; *ptrCurrentHeat<= goalHeat; *ptrCurrentHeat = *ptrCurrentHeat + 10)
-					{
+				std::cout << "heating start... you're almost there\n";
+				int *ptrCurrentHeat;
+				ptrCurrentHeat = &initialHeat;
+				ptrCurrentHeat = new int;
+				for(*ptrCurrentHeat = initialHeat; *ptrCurrentHeat<= goalHeat; *ptrCurrentHeat = *ptrCurrentHeat + 10)
+				{
 						std::cout << "the temperature of water is " << *ptrCurrentHeat << "...\n"; 
 						//10 milliseconds are too short to feel any pause
 						std::this_thread::sleep_for(std::chrono::milliseconds(10)); 
-					}
+				}
 					delete ptrCurrentHeat;
-				}
-					
+			}		
 		
-			std::cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
+			std::cout << "great "<< userInput << "cup(s) coffee is ready, enjoy! \n";
 			std::cout << "wait, it's hot. do enjoy it, but later." <<endl;			
-				}
-				
+			}
 			
 			
 		else{
@@ -173,9 +171,7 @@ int main()
 	else {
 		std::cout << "error! not an integer. sorry, order fails to proceed.";
 		exit(0);
-	}
-
-	
+	}	
 
 
 	return 0;
