@@ -52,96 +52,134 @@ public:
 	heating();		
 };
 
+bool intCheck(string input) 
+{ 
+    for (int i = 0; i < input.length(); i++) 
+        if (isdigit(input[i]) == false) 
+            return false; 
+  
+    return true; 
+} 
+
 int main()
 {
 	
 	std::cout << "welcome to use this second-handed coffer maker!\n";
 	std::cout << "so how many cups do you want to have? \n";
 	std::cout << "input the number of cup: \n";
-//	int userInput;
+	std::cout << "reminder: it has to be integer and "
+	
+	string input;
+	int userInput;
+	
 //	int *pInput;
-	cin >> userInput;
 //	pInput = &userInput;
+	cin >> input;
 	
-	int Bean::countBeans(int userInput){
-	    int *ptrBeanNum;
-	    ptrBeanNum = new int;
-	    *ptrBeanNum = *pInput * beanNum;
-	    std::cout << "so : " << *ptrBeanNum << " beans will start grinding for you in a second\n";
-	    delete ptrBeanNum;
-	    
-	    int *ptrBeanOz;
-	    ptrBeanOz = new int;
-	    *ptrBeanOz = userInput * singleCupOz;
-	    std::cout << "so : " << *ptrBeanOz << "oz of beans will start grinding for you in a second\n";
-	    delete ptrBeanOz;	
+	if (intCheck(input)){
+		if(input > 0){
+			std::cout << "order confirmed\n";
+			std::cout << "getting ready for coffee... \n";
 			
-	}
+			userInput = input;
 	
-	int  Reservoir::waterPrep(int userInput){
-		std::cout << "checking reservoir...\n";
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));	
-		std::cout << "you need " << userInput << " cup(s) of coffee \n";
-		int *ptrWater;
-		ptrWater = new int;
-		*ptrWater = water - userInput;
-		
-		
-			if(*ptrWater > totalWater) {
-				std::cout << "great, water is enough \n";
-				std::cout << "now let's heat it up...\n";
+	
+			int Bean::countBeans(int userInput){
+			    int *ptrBeanNum;
+			    ptrBeanNum = new int;
+			    *ptrBeanNum = *pInput * beanNum;
+			    std::cout << "so : " << *ptrBeanNum << " beans will start grinding for you in a second\n";
+			    delete ptrBeanNum;
+			    
+			    int *ptrBeanOz;
+			    ptrBeanOz = new int;
+			    *ptrBeanOz = userInput * singleCupOz;
+			    std::cout << "so : " << *ptrBeanOz << "oz of beans will start grinding for you in a second\n";
+			    delete ptrBeanOz;	
+					
 			}
 			
-			else{
-				while(*ptrWater < totalWater){
-					*ptrWater = *ptrWater + waterRefill;
-					std::cout << "wait, water is being refilled...\n";
+			int  Reservoir::waterPrep(int userInput){
+				std::cout << "checking reservoir...\n";
+				std::this_thread::sleep_for(std::chrono::milliseconds(1000));	
+				std::cout << "you need " << userInput << " cup(s) of coffee \n";
+				int *ptrWater;
+				ptrWater = new int;
+				*ptrWater = water - userInput;
+				
+					if(*ptrWater > totalWater) {
+						std::cout << "great, water is enough \n";
+						std::cout << "now let's heat it up...\n";
+					}
+					
+					else{
+						while(*ptrWater < totalWater){
+							*ptrWater = *ptrWater + waterRefill;
+							std::cout << "wait, water is being refilled...\n";
+					}
+						std::cout << "finally, water is enough\n";
+						std::cout << "now let's heat it up'\n";
+					}
+				delete ptrWater;		
 				}
-				std::cout << "finally, water is enough\n";
-				std::cout << "now let's heat it up'\n";
-			}
-		delete ptrWater;		
-		}
-	
-	std::cout << "water is getting ready\n";
-
-//	Reservoir reservoir;
-//	reservoir.waterPrep(getcupnum->userInput);
- 	
-	  
-//    if (*ptrBean < totalBean){
-//    	std::cout << "wonderful. there are enough beans";	
-//	}
-
-	void Bean::beanGrind() 
-	{
-		std::cout << *ptrBeanNum << "\n beans are now being grinded...\n";
-
-		for (int process = 0; process < = 100; process = process + 20){
-				std::cout << process << "% beans are now being grinded...\n";
-				std::this_thread::sleep_for(std::chrono::milliseconds(500));	
-		}
-		std::cout << "your coffee will be ready soon" << endl;
-		
-	};
-	
-	void Heat::heating(){
-			std::cout << "heating start... you're almost there\n";
-			int *ptrCurrentHeat;
-			ptrCurrentHeat = &initialHeat;
-			ptrCurrentHeat = new int;
-			for(*ptrCurrentHeat = initialHeat; *ptrCurrentHeat<= goalHeat; *ptrCurrentHeat = *ptrCurrentHeat + 10)
-			{
-				std::cout << "the temperature of water is " << *ptrCurrentHeat << "...\n"; 
-				//10 milliseconds are too short to feel any pause
-				std::this_thread::sleep_for(std::chrono::milliseconds(10)); 
-			}
-			delete ptrCurrentHeat;
-		}
 			
+			std::cout << "water is getting ready\n";
+		
+		//	Reservoir reservoir;
+		//	reservoir.waterPrep(userInput);
+			  
+		//    if (*ptrBean < totalBean){
+		//    	std::cout << "wonderful. there are enough beans";	
+		//	}
+		
+			void Bean::beanGrind() 
+			{
+				std::cout << *ptrBeanNum << "\n beans are now being grinded...\n";
+		
+				for (int process = 0; process < = 100; process = process + 20)
+				{
+						std::cout << process << "% beans are now being grinded...\n";
+						std::this_thread::sleep_for(std::chrono::milliseconds(500));	
+				}
+				std::cout << "your coffee will be ready soon" << endl;
+				
+			};
+			
+			void Heat::heating(){
+					std::cout << "heating start... you're almost there\n";
+					int *ptrCurrentHeat;
+					ptrCurrentHeat = &initialHeat;
+					ptrCurrentHeat = new int;
+					for(*ptrCurrentHeat = initialHeat; *ptrCurrentHeat<= goalHeat; *ptrCurrentHeat = *ptrCurrentHeat + 10)
+					{
+						std::cout << "the temperature of water is " << *ptrCurrentHeat << "...\n"; 
+						//10 milliseconds are too short to feel any pause
+						std::this_thread::sleep_for(std::chrono::milliseconds(10)); 
+					}
+					delete ptrCurrentHeat;
+				}
+					
+		
+			std::cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
+			std::cout << "wait, it's hot. do enjoy it, but later." <<endl;			
+				}
+				
+			
+			
+		else{
+			std::cout << "error, your input is supposed to > 0, order fails to proceed...\n";
+			exit(0);
+		}
+		
+	} 
+	
+	else {
+		std::cout << "it's not an integer. sorry, order fail to proceed.";
+		exit(0);
+	}
 
-	std::cout << "well done. "<< userInput << "cup(s) coffee is ready, enjoy! \n";
-	std::cout << "wait, it's hot. do enjoy it, but later." <<endl;
+	
+
 
 	return 0;
 
